@@ -92,6 +92,35 @@ header nav {
     margin-block-end: 0em;
 }
 
+.is-hidden {
+  display: none;
+}
+
+#menuOptions {
+  position: absolute;
+  z-index: 10;
+  background-color: var(--header-color);
+}
+
+#menuOptions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+#menuOptions li {
+  padding: 0.75rem;
+  cursor: pointer;  border-bottom: 1px solid var(--background-color);
+}
+
+#parkInfo {
+  background-color: var(--accent-color);
+}
+
+#parkInfo.overlay-hover {
+  background-color: var(--background-color);
+}
+
 footer {
     padding: 1rem;
     background-color: var(--header-footer-color);
