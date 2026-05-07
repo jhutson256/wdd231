@@ -39,8 +39,7 @@ header nav {
     border-left: 2px solid black;
     padding: 1rem;
     font-size: 1.5rem;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    position: relative;
 }
 
 #heroImg {
@@ -63,6 +62,12 @@ header nav {
 
 #parkInfo div {
     padding: 1rem;
+}
+
+#menu {
+    cursor: pointer;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 #parkMenu ul {
@@ -98,19 +103,23 @@ header nav {
 
 #menuOptions {
   position: absolute;
+  top: 100%;
+  right: 0;
   z-index: 10;
-  background-color: var(--header-color);
+  background-color: var(--header-footer-color);
 }
 
 #menuOptions ul {
   list-style: none;
   margin: 0;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 #menuOptions li {
   padding: 0.75rem;
-  cursor: pointer;  border-bottom: 1px solid var(--background-color);
+  cursor: pointer;
+  border-bottom: 1px solid var(--background-color);
 }
 
 #parkInfo {
@@ -126,4 +135,51 @@ footer {
     background-color: var(--header-footer-color);
     color: white;
     border: 1px solid black;
+}
+
+#promotions {
+  border: 1px solid black;
+  background-color: #f3f1ea;
+  padding: 1rem;
+}
+
+#promotions h2,
+#promotions p {
+  margin: 0.25rem 0;
+}
+
+#header-maps-link,
+#park-maps-link {
+  cursor: pointer;
+}
+
+#map-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Important: this beats #map-modal display:flex */
+#map-modal.is-hidden {
+  display: none;
+}
+
+#map-modal-content {
+  background-color: white;
+  border: 1px solid black;
+  width: min(900px, 95vw);
+  padding: 0.75rem;
+}
+
+#map-modal-close {
+  float: right;
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
 }

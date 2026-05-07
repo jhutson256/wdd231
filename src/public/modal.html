@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .modalOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            padding: 1rem;
+        }
+         .modalBox {
+            width: min(500px, 100%);
+            background: white;
+            opacity: 0;
+            margin: 0 auto;
+        }
+        .modalBox.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A Simple Modal</h1>
+    </header>
+    <main>
+        <p>Do not click this button!</p>
+        <button id="noClick">THE BUTTON</button>
+    </main>
+    <div class="modalOverlay hidden">
+        <div class="modalBox">
+            <p>YOU CLICKED THE BUTTON!</p>
+        </div>
+    </div>
+    <script>
+        const button = document.getElementById("noClick")
+        const overlay = document.querySelector(".modalOverlay")
+        const modal = document.querySelector(".modalBox")
+
+        function openModal() {
+            if (!overlay.classList.contains("hidden")) {
+                return;
+            }
+
+            overlay.classList.remove("hidden");
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeModal() {
+            modal.classList.remove("show");
+            overlay.classList.add("hidden");
+        }
+
+        button.addEventListener("click", openModal);
+        overlay.addEventListener("click", () => {
+            closeModal("Modal closed by clicking the overlay.");
+        });
+
+         modal.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && !overlay.classList.contains("hidden")) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
