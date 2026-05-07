@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox</title>
+</head>
+<body>
+    <label>
+        <input id="isOpen" type="checkbox" checked>
+        The Park is Open
+</label>
+    <div id="openOutput">Park is open</div>
+    <script>
+        const isOpenCheckbox = document.getElementById("isOpen");
+        const openOutput = document.getElementById("openOutput");
+
+        function updateOpenMessage() {
+            const isOpen = isOpenCheckbox.checked;
+            const message = isOpen ? "Park is open!" : "Park is closed.";
+            openOutput.textContent = message;
+        }
+
+        isOpenCheckbox.addEventListener("change", updateOpenMessage);
+    </script>
+</body>
+</html>
