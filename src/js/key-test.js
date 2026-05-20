@@ -3,7 +3,7 @@ const apiKey = import.meta.env.VITE_NPS_API_KEY;
 
 // Build the endpoint URL
 const url = "https://developer.nps.gov/api/v1/parks?parkCode=yell";
-// url = `${url}&api_key=${apiKey}`
+// url = `${url}&api_key=${apiKey};`
 
 // Fetch data using request headers
 async function getPark() {
@@ -13,9 +13,11 @@ async function getPark() {
     }
   });
 
-  const data = await response.json();
-
+  const data = await response.json(); // This turns the JSON into an object
   console.log(data);
+
+  const parkTag = document.getElementById("park-info");
+  parkTag.innerText = JSON.stringify(data); // This turns the JSON object into a string
 }
 
 getPark();
