@@ -111,7 +111,7 @@ header nav {
   font-weight: 700;
   letter-spacing: 0.02em;
   color: white;
-  background-color: var(--header-color);
+  background-color: var(--header-footer-color);
   border: 1px solid #1f2f27;
   border-radius: 6px;
   padding: 0.5rem 0.85rem;
@@ -138,7 +138,7 @@ header nav {
 }
 
 #favorites-section {
-  background-color: var(--header-color);
+  background-color: var(--header-footer-color);
   color: white;
   padding: 0.5rem 1rem 0.9rem;
   border-left: 1px solid black;
